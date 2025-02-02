@@ -1,18 +1,21 @@
 let newQoute=document.getElementById('newQuote');
 let newQuoteText=document.getElementById('newQuoteText');
 let  newQuoteCategory=document.getElementById('newQuoteCategory');
-let Stoeredquote=JSON.parse(localStorage.getItem('quote'))||[];
+let storedQuote=JSON.parse(localStorage.getItem('quote'))||[];
 const quoteDisplay=document.getElementById('quoteDisplay')
 
 
 function showRandomQuote(){
-quote.forEach(element => {
+
+
+  let i=Math.floor(Math.random()*storedQuote.lenght);
+  let randomQuote=storedQuote[i];
    let h2=document.createElement('h2');
    let p=document.createElement('p');
     h2.textContent=element.category;
     p.textContent=element.text;
 
-});
+
     
 }
 
@@ -24,7 +27,8 @@ function addQuote(){
               quote.text=newQuoteText.value;
               quote.category=newQuoteCategory.value;
                 
-              console.log(quote)
+              storedQuote.push(quote)
+             
             }
             else{
               alert('Enter information')
