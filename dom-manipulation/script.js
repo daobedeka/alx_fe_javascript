@@ -22,6 +22,10 @@ function showRandomQuote(){
     
 }
 
+function createAddQuoteForm(){
+  
+}
+
 newQoute.addEventListener('click',showRandomQuote)
 
 
