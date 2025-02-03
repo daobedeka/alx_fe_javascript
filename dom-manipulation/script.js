@@ -44,7 +44,7 @@ function showRandomQuote(){
 
     //Exporting Data
     let btnExport=document.createElement('button');
-    btnExport.textContent='Export Quote'
+    btnExport.textContent='Export Quotes'
 
     quoteDisplay.appendChild(btnExport);
 }
