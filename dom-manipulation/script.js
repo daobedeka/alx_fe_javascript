@@ -4,29 +4,7 @@ let  newQuoteCategory=document.getElementById('newQuoteCategory');
 let storedQuote=JSON.parse(localStorage.getItem('quote'))||[];
 const quoteDisplay=document.getElementById('quoteDisplay')
 
-
-function showRandomQuote(){
-
-
-  let i=Math.floor(Math.random()*storedQuote.lenght);
-
-  
-  let randomQuote=storedQuote[i];
-   let h2=document.createElement('h2');
-   let p=document.createElement('p');
-    h2.innerHTML=randomQuote.category;
-    p.innerHTML=randomQuote.text;
-    console.log(randomQuote  )
-
-
-    
-}
-
-function createAddQuoteForm(){
-  
-}
-
-newQoute.addEventListener('click',showRandomQuote)
+console.log(storedQuote)
 
 
 function addQuote(){
@@ -48,3 +26,30 @@ function addQuote(){
 
 
 }
+
+function showRandomQuote(){
+
+
+  let i=Math.floor(Math.random()*storedQuote.length);
+console.log(storedQuote)
+  
+  let randomQuote=storedQuote[i];
+  console.log(i)
+
+    console.log(randomQuote  )
+
+   let h2=document.createElement('h2');
+   let p=document.createElement('p');
+    h2.innerHTML=randomQuote.category;
+    p.innerHTML=randomQuote.text;
+  
+    quoteDisplay.appendChild(h2);
+    quoteDisplay.appendChild(p);
+
+    
+}
+
+function createAddQuoteForm(){
+  
+}
+newQoute.addEventListener('click',showRandomQuote)
