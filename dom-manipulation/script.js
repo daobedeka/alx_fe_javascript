@@ -31,12 +31,8 @@ function showRandomQuote(){
 
 
   let i=Math.floor(Math.random()*storedQuote.length);
-console.log(storedQuote)
   
   let randomQuote=storedQuote[i];
-  console.log(i)
-
-    console.log(randomQuote  )
 
    let h2=document.createElement('h2');
    let p=document.createElement('p');
@@ -46,7 +42,11 @@ console.log(storedQuote)
     quoteDisplay.appendChild(h2);
     quoteDisplay.appendChild(p);
 
-    
+    //Exporting Data
+    let btnExport=document.createElement('button');
+    btnExport.textContent='Export Quote'
+
+    quoteDisplay.appendChild(btnExport);
 }
 
 function createAddQuoteForm(){
