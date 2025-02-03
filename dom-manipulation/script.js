@@ -1,6 +1,7 @@
 let newQoute=document.getElementById('newQuote');
 let newQuoteText=document.getElementById('newQuoteText');
 let  newQuoteCategory=document.getElementById('newQuoteCategory');
+let btnExport=document.getElementById('btnExport');
 let storedQuote=JSON.parse(localStorage.getItem('quote'))||[];
 const quoteDisplay=document.getElementById('quoteDisplay')
 
@@ -43,10 +44,9 @@ function showRandomQuote(){
     quoteDisplay.appendChild(p);
 
     //Exporting Data
-    let btnExport=document.createElement('button');
-    btnExport.textContent='Export Quotes'
-
-    quoteDisplay.appendChild(btnExport);
+    document.getElementById('btnExport').style.display="block"
+ 
+    console.log( btnExport.style.display)
 }
 
 function createAddQuoteForm(){
