@@ -9,9 +9,12 @@
     <h1>Dynamic Quote Generator</h1>
     <div id="quoteDisplay">
 
-    <button  id="btnExport" >Export Quotes</button>
+   
     </div>
     <button id="newQuote">Show New Quote</button>
+    <button  id="btnExport" >Export Quotes</button>
+
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
 
     <div>
       <input id="newQuoteText" type="text" placeholder="Enter a new quote" />

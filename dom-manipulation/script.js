@@ -49,6 +49,13 @@ function showRandomQuote(){
     console.log( btnExport.style.display)
 }
 
+
+function exportToJsonFile(){
+  const a=document.createElement('a');
+  const myBlob=new Blob(storedQuote,  {type:" text/plain"})
+
+}
+
 function createAddQuoteForm(){
   
 }
