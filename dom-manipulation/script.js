@@ -44,19 +44,25 @@ function showRandomQuote(){
     quoteDisplay.appendChild(p);
 
     //Exporting Data
-    document.getElementById('btnExport').style.display="block"
- 
-    console.log( btnExport.style.display)
+
 }
 
 
 function exportToJsonFile(){
   const a=document.createElement('a');
-  const myBlob=new Blob(storedQuote,  {type:" text/plain"})
+  const myBlob=new Blob(storedQuote,  {type:" application/json"})
+  const jsonObjectUrl = URL.createObjectURL(myBlob);
+  a.href=jsonObjectUrl;
+
+  const fileName="quotes.json"
+  a.download=fileName;
+
 
 }
+
 
 function createAddQuoteForm(){
   
 }
 newQoute.addEventListener('click',showRandomQuote)
+btnExport.addEventListener('click',exportToJsonFile)
