@@ -50,7 +50,7 @@ function showRandomQuote(){
 
 function exportToJsonFile(){
   const a=document.createElement('a');
-  const myBlob=new Blob(storedQuote,  {type:" application/json"})
+  const myBlob=new Blob(storedQuote,  {type:"application/json"})
   const jsonObjectUrl = URL.createObjectURL(myBlob);
   a.href=jsonObjectUrl;
 
