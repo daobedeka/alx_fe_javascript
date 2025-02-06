@@ -75,5 +75,13 @@ function importFromJsonFile(event) {
 function createAddQuoteForm(){
   
 }
+
+function populateCategories(){
+  let quoteCategory= [ ]
+  storedQuote.forEach(element => {
+    quoteCategory.push(element.category)
+  });
+  console.log(quoteCategory)
+}
 newQoute.addEventListener('click',showRandomQuote)
 btnExport.addEventListener('click',exportToJsonFile)
