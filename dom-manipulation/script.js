@@ -87,7 +87,10 @@ function populateCategories(){
 
 
   filteredCategories=filteredArray.forEach(element=>{returnelement.category})
-    
+    filteredCategories.forEach(element=>{
+      let option =document.createElement('option')
+      option.textContent=element;
+    })
  
 }
 newQoute.addEventListener('click',showRandomQuote)
