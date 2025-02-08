@@ -76,12 +76,19 @@ function createAddQuoteForm(){
   
 }
 
+let categoryFilter=document.getElementById('categoryFilter');
+
+function filterQuotes(){
+
+}
+
 function populateCategories(){
-  let quoteCategory= [ ]
-  storedQuote.forEach(element => {
-    quoteCategory.push(element.category)
-  });
-  console.log(quoteCategory)
+  let filteredArray=[...new Map(storedQuote.map(item=>[item['category'], item]))]
+
+
+  filteredCategories=filteredArray.forEach(element=>{returnelement.category})
+    
+ 
 }
 newQoute.addEventListener('click',showRandomQuote)
 btnExport.addEventListener('click',exportToJsonFile)
