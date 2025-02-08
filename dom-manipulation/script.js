@@ -5,7 +5,7 @@ let btnExport=document.getElementById('btnExport');
 let storedQuote=JSON.parse(localStorage.getItem('quote'))||[];
 const quoteDisplay=document.getElementById('quoteDisplay')
 
-console.log(storedQuote)
+
 
 
 function addQuote(){
@@ -78,20 +78,38 @@ function createAddQuoteForm(){
 
 let categoryFilter=document.getElementById('categoryFilter');
 
+  
 function filterQuotes(){
+let selectedCategory=document.querySelector('option').value;
+let filteredQuotes=storedQuote.filter(element=>element.category ===selectedCategory )
+filteredQuotes.forEach(element=>{
+
+  let h2=document.createElement('h2');
+   let p=document.createElement('p');
+    h2.innerHTML=element.category;
+    p.innerHTML=element.text;
+  
+    quoteDisplay.appendChild(h2);
+    quoteDisplay.appendChild(p);
+
+})
 
 }
 
 function populateCategories(){
-  let filteredArray=[...new Map(storedQuote.map(item=>[item['category'], item]))]
+  let filteredArray=[...new Map(storedQuote.map(item=>[item['category'], item])).values()]
 
-
-  filteredCategories=filteredArray.forEach(element=>{returnelement.category})
+  console.log(filteredArray)
+  filteredCategories=filteredArray.map(element=> element.category);
+ console.log(filteredCategories)
     filteredCategories.forEach(element=>{
       let option =document.createElement('option')
       option.textContent=element;
+      option.value=element;
+      categoryFilter.appendChild(option);
     })
  
 }
 newQoute.addEventListener('click',showRandomQuote)
 btnExport.addEventListener('click',exportToJsonFile)
+categoryFilter.addEventListener('click',populateCategories)
