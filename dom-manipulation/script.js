@@ -112,9 +112,14 @@ function populateCategories(){
  
 }
 let fetchQuotesFromServer;
-fetch('https://jsonplaceholder.typicode.com/users')
-  .then(response=>response.json())
-  .then(json=>{fetchQuotesFromServer=json})
+
+async function fetchQuotesFromServer(){
+  const response= await fetch('https://jsonplaceholder.typicode.com/users');
+  const serverData=await response.json();
+}
+
+
+ 
 newQoute.addEventListener('click',showRandomQuote)
 btnExport.addEventListener('click',exportToJsonFile)
 categoryFilter.addEventListener('click',populateCategories)
