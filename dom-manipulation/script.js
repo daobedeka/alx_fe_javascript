@@ -84,6 +84,7 @@ let selectedCategory=document.querySelector('option').value;
 let filteredQuotes=storedQuote.filter(element=>element.category ===selectedCategory )
 filteredQuotes.forEach(element=>{
 
+  console.log(element)
   let h2=document.createElement('h2');
    let p=document.createElement('p');
     h2.innerHTML=element.category;
@@ -99,9 +100,9 @@ filteredQuotes.forEach(element=>{
 function populateCategories(){
   let filteredArray=[...new Map(storedQuote.map(item=>[item['category'], item])).values()]
 
-  console.log(filteredArray)
+
   filteredCategories=filteredArray.map(element=> element.category);
- console.log(filteredCategories)
+
     filteredCategories.forEach(element=>{
       let option =document.createElement('option')
       option.textContent=element;
@@ -110,6 +111,10 @@ function populateCategories(){
     })
  
 }
+let fetchQuotesFromServer;
+fetch('https://jsonplaceholder.typicode.com/users')
+  .then(response=>response.json())
+  .then(json=>{fetchQuotesFromServer=json})
 newQoute.addEventListener('click',showRandomQuote)
 btnExport.addEventListener('click',exportToJsonFile)
 categoryFilter.addEventListener('click',populateCategories)
